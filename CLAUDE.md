@@ -4,7 +4,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Kotlin JVM project using Gradle as the build system. It's a basic "Hello World" application set up for server-side Kotlin development.
+This is a server-side Kotlin learning project using Gradle as the build system. The project is designed for hands-on Kotlin development practice, implementing various concepts and patterns commonly used in server-side applications.
+
+### Learning Objectives
+
+This project follows the "Hands-on Server-side Kotlin Development (Spring Boot & Arrow)" handbook and covers:
+- Kotlin fundamentals and best practices
+- Spring Boot web application development
+- RESTful API design and implementation
+- Error handling with Arrow
+- Domain-driven design principles
+- CRUD operations and data persistence
+
+### Reference Material
+[Implementing Server-side Kotlin Development](https://zenn.dev/msksgm/books/implementing-server-side-kotlin-development)
 
 ## Commands
 
@@ -26,14 +39,25 @@ This is a Kotlin JVM project using Gradle as the build system. It's a basic "Hel
 - **Language**: Kotlin 2.2.0 targeting JVM 24
 - **Build System**: Gradle with Kotlin DSL
 - **Testing**: JUnit Platform (configured but no tests present yet)
-- **Package Structure**: Main code in `helloworld` package under `src/main/kotlin/`
-- **Entry Point**: `helloworld.Main.kt` contains the main function
+- **Package Structure**: Organized by feature/domain under `src/main/kotlin/`
+- **Current State**: Starting with basic Hello World implementation in `helloworld` package
+- **Planned Evolution**: Will expand to include domain models, services, and API controllers
 
 ## Development Notes
 
 - Kotlin code style is set to "official" in gradle.properties
-- No application plugin is configured, so there's no `run` task available
-- To run the application, use `./gradlew jar` then `java -jar build/libs/hands-on-server-side-kotlin-1.0-SNAPSHOT.jar` or add the application plugin to build.gradle.kts
+- This is a learning project - implementations may evolve as new concepts are explored
+- Dependencies will be added incrementally as features are implemented (Spring Boot, Arrow, etc.)
+- No application plugin is currently configured, so there's no `run` task available
+- To run the current application, use `./gradlew jar` then `java -jar build/libs/hands-on-server-side-kotlin-1.0-SNAPSHOT.jar`
+
+### Learning Progression
+
+1. **Phase 1**: Kotlin basics and Hello World (Current)
+2. **Phase 2**: Spring Boot setup and basic web APIs
+3. **Phase 3**: Domain modeling and business logic
+4. **Phase 4**: Error handling with Arrow
+5. **Phase 5**: Complete CRUD application with persistence
 
 ## Git Commit Guidelines
 
