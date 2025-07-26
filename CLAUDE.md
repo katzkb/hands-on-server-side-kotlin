@@ -90,3 +90,9 @@ This project follows the [Conventional Commits](https://www.conventionalcommits.
 - `fix: resolve memory leak in data processing`
 - `docs: update API documentation`
 - `build: upgrade Kotlin to 2.2.0`
+
+### Commit Message Preferences
+- Keep commit messages to a single line only
+- Do not include detailed bullet point lists in commit body
+- Do not include Co-Authored-By lines in commit messages
+- Do not include "Generated with Claude Code" footer
