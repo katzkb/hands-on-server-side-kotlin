@@ -1,3 +1,5 @@
+package fizzbuzz.ifexpr
+
 fun fizzbuzz(i: Int): String {
   return if (i % 15 == 0) {
     "FizzBuzz"
