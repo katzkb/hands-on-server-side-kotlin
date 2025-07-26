@@ -43,3 +43,7 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### Claude Code ###
+.claude/*
+!.claude/settings.json
