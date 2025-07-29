@@ -1,4 +1,4 @@
-package com.example.kotlin_spring_crud_web_api
+package com.example.server.crud
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate

@@ -1,4 +1,4 @@
-package com.example.handsOnServerSideKotlin
+package com.example.server.handsOn
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

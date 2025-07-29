@@ -41,5 +41,5 @@ tasks.test {
 }
 
 springBoot {
-  mainClass.set("com.example.handsOnServerSideKotlin.HandsOnServerSideKotlinApplicationKt")
+  mainClass.set("com.example.server.handsOn.HandsOnServerSideKotlinApplicationKt")
 }

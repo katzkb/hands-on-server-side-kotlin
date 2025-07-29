@@ -1,4 +1,4 @@
-package com.example.kotlin_spring_crud_web_api
+package com.example.server.crud
 
 /**
  * Data model used in web APIs
