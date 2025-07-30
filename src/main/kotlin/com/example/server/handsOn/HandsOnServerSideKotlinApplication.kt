@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class HandsOnServerSideKotlinApplication
 
 fun main(args: Array<String>) {
-	runApplication<HandsOnServerSideKotlinApplication>(*args)
+  runApplication<HandsOnServerSideKotlinApplication>(*args)
 }

@@ -46,7 +46,8 @@ class CustomerRepositoryImpl(val namedParameterJdbcProfiles: NamedParameterJdbcT
   override fun add(firstName: String, lastName: String) {
     val sql = """
       INSERT INTO customer(first_name, last_name)
-      VALUES (:firstName, :lastName);
+      VALUES (:first_name, :last_name)
+      ;
     """.trimIndent()
 
     val sqlParams = MapSqlParameterSource()
@@ -60,7 +61,8 @@ class CustomerRepositoryImpl(val namedParameterJdbcProfiles: NamedParameterJdbcT
   override fun findAll(): List<Customer> {
     val sql = """
       SELECT id, first_name, last_name
-      FROM customers
+      FROM customer
+      ;
     """.trimIndent()
 
     val sqlParams = MapSqlParameterSource()
@@ -78,9 +80,10 @@ class CustomerRepositoryImpl(val namedParameterJdbcProfiles: NamedParameterJdbcT
     val sql = """
       UPDATE customer
       SET
-        first_name = :firstName
-        , last_name = :lastName
+        first_name = :first_name
+        , last_name = :last_name
       WHERE id = :id
+      ;
     """.trimIndent()
 
     val sqlParams = MapSqlParameterSource()
@@ -94,8 +97,9 @@ class CustomerRepositoryImpl(val namedParameterJdbcProfiles: NamedParameterJdbcT
 
   override fun delete(id: Long) {
     val sql = """
-      DELETE FROM customers
+      DELETE FROM customer
       WHERE id = :id
+      ;
     """.trimIndent()
 
     val sqlParams = MapSqlParameterSource()
