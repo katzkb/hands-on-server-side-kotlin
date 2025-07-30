@@ -17,63 +17,63 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class CustomerController(val customerService: CustomerService) {
 
-  /**
-   * Endpoint for adding a customer
-   *
-   * @param request
-   * @return
-   */
-  @PostMapping("/customers")
-  fun insert(@RequestBody request: CustomerRequest): String {
-    customerService.insertCustomer(request.firstName, request.lastName)
-    return """
+    /**
+     * Endpoint for adding a customer
+     *
+     * @param request
+     * @return
+     */
+    @PostMapping("/customers")
+    fun insert(@RequestBody request: CustomerRequest): String {
+        customerService.insertCustomer(request.firstName, request.lastName)
+        return """
       {
         "message": "success"
       }
-    """.trimIndent()
-  }
+        """.trimIndent()
+    }
 
-  /**
-   * Endpoint for selecting all customers
-   *
-   * @return
-   */
-  @GetMapping("/customers")
-  fun read(): CustomerResponse {
-    return CustomerResponse(customers =  customerService.selectCustomers())
-  }
+    /**
+     * Endpoint for selecting all customers
+     *
+     * @return
+     */
+    @GetMapping("/customers")
+    fun read(): CustomerResponse {
+        return CustomerResponse(customers = customerService.selectCustomers())
+    }
 
-  /**
-   * Endpoint for updating a customer
-   *
-   * @param id
-   * @param request
-   * @return
-   */
-  @PutMapping("/customers/{id}")
-  fun update(@PathVariable("id") id: Long, @RequestBody request: CustomerRequest): String {
-    customerService.updateCustomer(id, request.firstName, request.lastName)
-    return """
+    /**
+     * Endpoint for updating a customer
+     *
+     * @param id
+     * @param request
+     * @return
+     */
+    @PutMapping("/customers/{id}")
+    fun update(@PathVariable("id") id: Long, @RequestBody request: CustomerRequest): String {
+        customerService.updateCustomer(id, request.firstName, request.lastName)
+        return """
       {
         "message": "success"
       }
-    """.trimIndent()
-  }
+        """.trimIndent()
+    }
 
-  /**
-   * Endpoint for deleting a customer
-   *
-   * @param id
-   */
-  @DeleteMapping("/customers/{id}")
-  fun delete(@PathVariable("id") id: Long): String {
-    customerService.deleteCustomer(id)
-    return """
+    /**
+     * Endpoint for deleting a customer
+     *
+     * @param id
+     */
+    @DeleteMapping("/customers/{id}")
+    fun delete(@PathVariable("id") id: Long): String {
+        customerService.deleteCustomer(id)
+        return """
       {
         "message": "success"
       }
-    """.trimIndent()
-  }
+        """.trimIndent()
+    }
 }
 
 /**
@@ -83,8 +83,8 @@ class CustomerController(val customerService: CustomerService) {
  * @param lastName
  */
 data class CustomerRequest(
-  @JsonProperty("first_name") val firstName: String,
-  @JsonProperty("last_name") val lastName: String,
+    @JsonProperty("first_name") val firstName: String,
+    @JsonProperty("last_name") val lastName: String,
 )
 
 /**
@@ -93,5 +93,5 @@ data class CustomerRequest(
  * @param customers
  */
 data class CustomerResponse(
-  val customers: List<Customer>
+    val customers: List<Customer>
 )

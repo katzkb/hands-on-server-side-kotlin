@@ -7,8 +7,8 @@ package com.example.server.crud
  * @property firstName
  * @property lastName
  */
-data class Customer (
-  val id: Long,
-  val firstName: String,
-  val lastName: String
+data class Customer(
+    val id: Long,
+    val firstName: String,
+    val lastName: String
 )

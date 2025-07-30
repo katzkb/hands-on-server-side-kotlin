@@ -9,103 +9,103 @@ import org.springframework.stereotype.Repository
  * MEMO: This file might ignore DDD style.
  */
 interface CustomerRepository {
-  /**
-   * Method of insert data to the customer table
-   *
-   * @param firstName
-   * @param lastName
-   */
-  fun add(firstName: String, lastName: String)
+    /**
+     * Method of insert data to the customer table
+     *
+     * @param firstName
+     * @param lastName
+     */
+    fun add(firstName: String, lastName: String)
 
-  /**
-   * Method of find all data from the customer table
-   *
-   * @return List of all customers
-   */
-  fun findAll(): List<Customer>
+    /**
+     * Method of find all data from the customer table
+     *
+     * @return List of all customers
+     */
+    fun findAll(): List<Customer>
 
-  /**
-   * Method of update data by id in the customer table
-   *
-   * @param id
-   * @param firstName
-   * @param lastName
-   */
-  fun update(id: Long, firstName: String, lastName: String)
+    /**
+     * Method of update data by id in the customer table
+     *
+     * @param id
+     * @param firstName
+     * @param lastName
+     */
+    fun update(id: Long, firstName: String, lastName: String)
 
-  /**
-   * Method of delete data by id from the customer table
-   *
-   * @param id
-   */
-  fun delete(id: Long)
+    /**
+     * Method of delete data by id from the customer table
+     *
+     * @param id
+     */
+    fun delete(id: Long)
 }
 
 @Repository
 class CustomerRepositoryImpl(val namedParameterJdbcProfiles: NamedParameterJdbcTemplate) : CustomerRepository {
-  override fun add(firstName: String, lastName: String) {
-    val sql = """
+    override fun add(firstName: String, lastName: String) {
+        val sql = """
       INSERT INTO customer(first_name, last_name)
       VALUES (:first_name, :last_name)
       ;
-    """.trimIndent()
+        """.trimIndent()
 
-    val sqlParams = MapSqlParameterSource()
-      .addValue("first_name", firstName)
-      .addValue("last_name", lastName)
+        val sqlParams = MapSqlParameterSource()
+            .addValue("first_name", firstName)
+            .addValue("last_name", lastName)
 
-    namedParameterJdbcProfiles.update(sql, sqlParams)
-    return
-  }
+        namedParameterJdbcProfiles.update(sql, sqlParams)
+        return
+    }
 
-  override fun findAll(): List<Customer> {
-    val sql = """
+    override fun findAll(): List<Customer> {
+        val sql = """
       SELECT id, first_name, last_name
       FROM customer
       ;
-    """.trimIndent()
+        """.trimIndent()
 
-    val sqlParams = MapSqlParameterSource()
-    val customerMap = namedParameterJdbcProfiles.queryForList(sql, sqlParams)
-    return customerMap.map {
-      Customer(
-        it["id"].toString().toInt().toLong(),
-        it["first_name"].toString(),
-        it["last_name"].toString()
-      )
+        val sqlParams = MapSqlParameterSource()
+        val customerMap = namedParameterJdbcProfiles.queryForList(sql, sqlParams)
+        return customerMap.map {
+            Customer(
+                it["id"].toString().toInt().toLong(),
+                it["first_name"].toString(),
+                it["last_name"].toString()
+            )
+        }
     }
-  }
 
-  override fun update(id: Long, firstName: String, lastName: String) {
-    val sql = """
+    override fun update(id: Long, firstName: String, lastName: String) {
+        val sql = """
       UPDATE customer
       SET
         first_name = :first_name
         , last_name = :last_name
       WHERE id = :id
       ;
-    """.trimIndent()
+        """.trimIndent()
 
-    val sqlParams = MapSqlParameterSource()
-      .addValue("first_name", firstName)
-      .addValue("last_name", lastName)
-      .addValue("id", id)
+        val sqlParams = MapSqlParameterSource()
+            .addValue("first_name", firstName)
+            .addValue("last_name", lastName)
+            .addValue("id", id)
 
-    namedParameterJdbcProfiles.update(sql, sqlParams)
-    return
-  }
+        namedParameterJdbcProfiles.update(sql, sqlParams)
+        return
+    }
 
-  override fun delete(id: Long) {
-    val sql = """
+    override fun delete(id: Long) {
+        val sql = """
       DELETE FROM customer
       WHERE id = :id
       ;
-    """.trimIndent()
+        """.trimIndent()
 
-    val sqlParams = MapSqlParameterSource()
-      .addValue("id", id)
+        val sqlParams = MapSqlParameterSource()
+            .addValue("id", id)
 
-    namedParameterJdbcProfiles.update(sql, sqlParams)
-    return
-  }
+        namedParameterJdbcProfiles.update(sql, sqlParams)
+        return
+    }
 }
