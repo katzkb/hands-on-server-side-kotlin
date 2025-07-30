@@ -41,6 +41,7 @@ interface CustomerRepository {
     fun delete(id: Long)
 }
 
+@Suppress("UndocumentedPublicClass", "UndocumentedPublicProperty")
 @Repository
 class CustomerRepositoryImpl(val namedParameterJdbcProfiles: NamedParameterJdbcTemplate) : CustomerRepository {
     override fun add(firstName: String, lastName: String) {
@@ -71,7 +72,7 @@ class CustomerRepositoryImpl(val namedParameterJdbcProfiles: NamedParameterJdbcT
             Customer(
                 it["id"].toString().toInt().toLong(),
                 it["first_name"].toString(),
-                it["last_name"].toString()
+                it["last_name"].toString(),
             )
         }
     }

@@ -37,6 +37,7 @@ interface CustomerService {
     fun deleteCustomer(id: Long)
 }
 
+@Suppress("UndocumentedPublicClass", "UndocumentedPublicProperty")
 @Service
 class CustomerServiceImpl(val customerRepository: CustomerRepository) : CustomerService {
     override fun insertCustomer(firstName: String, lastName: String) {

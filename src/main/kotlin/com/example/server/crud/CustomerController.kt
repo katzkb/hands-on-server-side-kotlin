@@ -93,5 +93,5 @@ data class CustomerRequest(
  * @param customers
  */
 data class CustomerResponse(
-    val customers: List<Customer>
+    val customers: List<Customer>,
 )
