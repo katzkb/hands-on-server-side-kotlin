@@ -77,6 +77,22 @@ dependencies {
      */
     dokkaHtmlPlugin("org.jetbrains.dokka:kotlin-as-java-plugin:2.0.0")
 
+    /**
+     * Arrow Core
+     *
+     * URL
+     * - https://arrow-kt.io/
+     * MavenCentral
+     * - https://mvnrepository.com/artifact/io.arrow-kt/arrow-core
+     * Main用途
+     * - Either/Validatedを使ったRailway Oriented Programming
+     * Sub用途
+     * - Optionを使ったletの代替
+     * 概要
+     * - Kotlinで関数型プログラミングをするときに便利なライブラリ
+     */
+    implementation("io.arrow-kt:arrow-core:2.1.2")
+
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.postgresql:postgresql")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
