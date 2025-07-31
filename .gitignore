@@ -47,3 +47,6 @@ bin/
 ### Claude Code ###
 .claude/*
 !.claude/settings.json
+
+### jqwik ###
+.jqwik-database

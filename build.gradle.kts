@@ -109,6 +109,25 @@ dependencies {
      */
     testImplementation("org.assertj:assertj-core:3.27.3")
 
+    /**
+     * jqwik
+     *
+     * URL
+     * - https://jqwik.net/
+     * MavenCentral
+     * - https://mvnrepository.com/artifact/net.jqwik/jqwik
+     * - https://mvnrepository.com/artifact/net.jqwik/jqwik-kotlin
+     * Main用途
+     * - Property Based Testing(pbt)
+     * 概要
+     * - Property Based Testingをするのに便利なライブラリ
+     * 参考
+     * - https://medium.com/criteo-engineering/introduction-to-property-based-testing-f5236229d237
+     * - https://johanneslink.net/property-based-testing-in-kotlin/#jqwiks-kotlin-support
+     */
+    testImplementation("net.jqwik:jqwik:1.9.3")
+    testImplementation("net.jqwik:jqwik-kotlin:1.9.3")
+
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.postgresql:postgresql")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
