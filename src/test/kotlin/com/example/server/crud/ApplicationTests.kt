@@ -19,34 +19,34 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ApplicationTests(@Autowired val mockMvc: MockMvc) {
 
-  @Test
-  @DisplayName("get /customers のテスト")
-  fun read() {
-    /**
-     * given:
-     */
+    @Test
+    @DisplayName("get /customers のテスト")
+    fun read() {
+        /**
+         * given:
+         */
 
-    /**
-     * when:
-     * - get /customers を実行
-     * - レスポンススタータスとレスポンスボディを取得
-     */
-    val response = mockMvc.perform(
-      MockMvcRequestBuilders
-        .get("/customers")
-        .contentType(MediaType.APPLICATION_JSON)
-    ).andReturn().response
-    val actualStatus = response.status
-    val actualResponseBody = response.contentAsString
+        /**
+         * when:
+         * - get /customers を実行
+         * - レスポンススタータスとレスポンスボディを取得
+         */
+        val response = mockMvc.perform(
+            MockMvcRequestBuilders
+                .get("/customers")
+                .contentType(MediaType.APPLICATION_JSON),
+        ).andReturn().response
+        val actualStatus = response.status
+        val actualResponseBody = response.contentAsString
 
-    /**
-     * then:
-     * - ステータスコードが一致する
-     * - レスポンスボディが一致する
-     */
-    val expectedStatus = HttpStatus.OK.value()
-    val expectedResponseBody =
-      """
+        /**
+         * then:
+         * - ステータスコードが一致する
+         * - レスポンスボディが一致する
+         */
+        val expectedStatus = HttpStatus.OK.value()
+        val expectedResponseBody =
+            """
         {
          "customers": [
             {
@@ -61,13 +61,13 @@ class ApplicationTests(@Autowired val mockMvc: MockMvc) {
             }
           ]
         }
-      """.trimIndent()
+            """.trimIndent()
 
-    assertThat(actualStatus).isEqualTo(expectedStatus)
-    JSONAssert.assertEquals(
-      expectedResponseBody,
-      actualResponseBody,
-      JSONCompareMode.NON_EXTENSIBLE
-    )
-  }
+        assertThat(actualStatus).isEqualTo(expectedStatus)
+        JSONAssert.assertEquals(
+            expectedResponseBody,
+            actualResponseBody,
+            JSONCompareMode.NON_EXTENSIBLE,
+        )
+    }
 }
