@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.info.Info
 import io.swagger.v3.oas.annotations.servers.Server
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
+@Suppress("UndocumentedPublicClass")
 @SpringBootApplication
 @OpenAPIDefinition(
     info = Info(
@@ -16,7 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
         Server(
             description = "Local Server",
             url = "http://localhost:8080",
-        )
-    ]
+        ),
+    ],
 )
 class Application
