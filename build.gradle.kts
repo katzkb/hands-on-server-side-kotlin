@@ -93,6 +93,22 @@ dependencies {
      */
     implementation("io.arrow-kt:arrow-core:2.1.2")
 
+    /**
+     * AssertJ
+     *
+     * URL
+     * - https://assertj.github.io/doc/
+     * MavenCentral
+     * - https://mvnrepository.com/artifact/org.assertj/assertj-core
+     * Main用途
+     * - JUnitでassertThat(xxx).isEqualTo(yyy)みたいな感じで比較時に使う
+     * Sub用途
+     * - 特になし
+     * 概要
+     * - JUnit等を直感的に利用するためのライブラリ
+     */
+    testImplementation("org.assertj:assertj-core:3.27.3")
+
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.postgresql:postgresql")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
