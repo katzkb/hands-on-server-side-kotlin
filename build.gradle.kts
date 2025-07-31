@@ -37,7 +37,19 @@ plugins {
      */
     id("org.jetbrains.dokka") version "2.0.0"
 
-    id("org.springdoc.openapi-gradle-plugin") version "1.8.0"
+    /**
+     * springdoc
+     *
+     * URL
+     * - https://springdoc.org/
+     * Main 用途
+     * - OpenAPI 仕様に基づいたドキュメントを生成する
+     * Sub 用途
+     * - なし
+     * 概要
+     * コードから OpenAPI 仕様に基づいたドキュメントの生成ライブラリ
+     */
+    id("org.springdoc.openapi-gradle-plugin") version "1.9.0"
 }
 
 group = "org.example"
@@ -128,9 +140,30 @@ dependencies {
     testImplementation("net.jqwik:jqwik:1.9.3")
     testImplementation("net.jqwik:jqwik-kotlin:1.9.3")
 
+    /**
+     * Spring Boot Starter Validation
+     *
+     * MavenCentral
+     * - https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-validation
+     * Main用途
+     * - コントローラーのバリデーションのために利用する
+     * Sub用途
+     * - 無し
+     * 概要
+     * - Validation を実装した際に、本ライブラリがなければ、バリデーションが動作しない
+     */
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+
+    /**
+     * springdoc の gradle 拡張
+     *
+     * 概要
+     * - CLI から springdoc を利用して OpenAPI を 生成する
+     */
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9")
+
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("org.postgresql:postgresql")
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
@@ -179,4 +212,10 @@ detekt {
 springBoot {
 //  mainClass.set("com.example.server.handsOn.HandsOnServerSideKotlinApplicationKt")
     mainClass.set("com.example.server.crud.ApplicationKt")
+}
+
+openApi {
+    apiDocsUrl.set("http://localhost:8080/v3/api-docs.yaml")
+    outputDir.set(project.layout.buildDirectory.dir("springdoc"))
+    outputFileName.set("openapi.yaml")
 }
