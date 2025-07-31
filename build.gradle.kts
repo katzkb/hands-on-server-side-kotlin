@@ -162,8 +162,36 @@ dependencies {
      */
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.9")
 
+    /**
+     * Spring JDBC
+     *
+     * URL
+     * - https://spring.pleiades.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/package-summary.html
+     * MavenCentral
+     * - https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc
+     * Main用途
+     * - DBへ保存
+     * 概要
+     * - 特になし
+     *
+     * これを入れるだけで、application.properties/yamlや@ConfigurationによるDB接続設定が必要になる
+     */
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
+
+    /**
+     * postgresql
+     *
+     * URL
+     * - https://jdbc.postgresql.org/
+     * MavenCentral
+     * - https://mvnrepository.com/artifact/org.postgresql/postgresql
+     * Main用途
+     * - DBつなぐ時のドライバ
+     * 概要
+     * - 特になし
+     */
     implementation("org.postgresql:postgresql")
+
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
