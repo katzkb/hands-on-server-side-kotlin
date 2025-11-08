@@ -60,34 +60,34 @@ interface Title {
             return ValidatedTitle(title).right()
         }
     }
-}
-
-/**
- * The domain rule to create a title object
- */
-sealed interface CreationError : ValidationError {
 
     /**
-     * Required
-     *
-     * Do not allow blank title
-     *
-     * @constructor Create empty Required
+     * The domain rule to create a title object
      */
-    object Required : CreationError {
-        override val message: String
-            get() = "title は必須です"
-    }
+    sealed interface CreationError : ValidationError {
 
-    /**
-     * Restriction the length of title
-     *
-     * Do not allow title longer than the maximum length
-     *
-     * @property maximumLength
-     */
-    data class TooLong(val maximumLength: Int) : CreationError {
-        override val message: String
-            get() = "title は $maximumLength 文字以下にしてください。"
+        /**
+         * Required
+         *
+         * Do not allow blank title
+         *
+         * @constructor Create empty Required
+         */
+        object Required : CreationError {
+            override val message: String
+                get() = "title は必須です"
+        }
+
+        /**
+         * Restriction the length of title
+         *
+         * Do not allow title longer than the maximum length
+         *
+         * @property maximumLength
+         */
+        data class TooLong(val maximumLength: Int) : CreationError {
+            override val message: String
+                get() = "title は $maximumLength 文字以下にしてください。"
+        }
     }
 }
